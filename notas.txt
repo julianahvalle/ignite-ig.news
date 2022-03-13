@@ -1,0 +1,31 @@
+next: 
+
+pagina é montada em um servidor node.js (diferente do backend).
+esse servidor node é responsável somente por criar a interface 
+
+pages não pode ser renomeada e só pode estar na raiz ou na pasta src (que também não pode ser renomeada)
+- cada arquivo dentro da pasta pages vir uma rota dentro do next(menos o _app e _document)
+
+scooped css - se aplica ao escopo de um único componente (se usa module) 
+<nomeRota>.module.css -> se torna um scooped css
+para usar module é necessário começar a estilização por uma classe 
+no tsx:
+<h1 className = {styles.<nome da classe>}>
+obs: usando module, ao inspecionar o elemento o class do elemento tem uma hash que faz com que o elemento seja único (isso é uma função do next)
+obs: se eu quero aplicar um css global, posso criar o nome sem o module
+
+SASS
+scss -> precisa das {} pra indicar onde uma tag abre e fecha 
+sass -> não precisa de {}
+
+_app -> sempre fica por volta de todas as páginas e o app é recarregado toda vez q o usuário troca de tela
+_document -> é carregado uma única vez na aplicação (comparado ao index.html da pasta public).
+o document precisa ser escrito em formato de classe pq o next ainda não tem
+obs max: a classe deve ser chamada de MyDocument pq irá extender o Document do next/document 
+obs 2: css não deve ser importado dentro do document (pq esta em um nível muito próximo do html) 
+estilo deve ir dentro do app
+
+a estilização da margin do botão é devido ao contexto que o botão da aplicado, neste caso, o header (o botão ta dentro dela)
+
+no next temos .env.local , .env.production e etc 
+.env.local -> serve para criar chaves de ambiente
